@@ -1,4 +1,9 @@
 {%- assign geolocator_src = "/apps/gym/geolocator" | prepend: site.aqassetsurl -%}
+{%- assign markets_endpoint = "/feeds/markets.json" | prepend: site.url -%}
+{%- if site.environment == "local" -%}
+  {%- assign markets_endpoint = "/feeds/markets.json" -%}
+  {%- assign jobs_fallback = jobs_endpoint -%}
+{%- endif -%}
 
 {%- if site.environment == "local" -%}
   {%- assign geolocator_src = "?gymdev=true" | prepend: geolocator_src -%}
@@ -6,6 +11,6 @@
 
 <script async defer src="{{site.url}}/js/gymnasium.js?{{ site.time | date:'%s' }}"></script>
 
-<iframe id="geolocator" src="{{ geolocator_src }}" frameborder="0" style="width:1px;height:1px;visibility:hidden;"></iframe>
+<iframe id="geolocator" src="{{ geolocator_src }}" frameborder="0" style="width:1px;height:1px;visibility:hidden;" data-markets="{{markets_endpoint}}"></iframe>
 
 
