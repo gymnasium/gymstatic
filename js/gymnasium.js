@@ -17,7 +17,7 @@ document.write = function(parameter) {
     document.head.appendChild(script); 
   } else {
     document.writeText(parameter);
-  }   
+  }
 };
 
 class gym {
