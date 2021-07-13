@@ -26,19 +26,21 @@ video_ID: {{ webinar.video_ID }}
 //-->
 
 {% if webinar.video %}
-{%- assign page_title = "Webinar Recording | The Gymnasium" -%}
+  {%- assign page_title = "Webinar Recording | The Gymnasium" -%}
 {%- elsif webinar.register -%}
-{%- assign page_title = "Webinar Registration | The Gymnasium" -%}
+  {%- assign page_title = "Webinar Registration | The Gymnasium" -%}
 {% endif %}
+<!-- TODO: this page title does nothing to the theme front end, and should probably be removed -->
 <title>{{ page_title }}</title>
+
+<link rel="stylesheet" href="{{ site.url }}/css/webinars.css?{{ site.time | date:'%s' }}">
+
+<div class="content-wrapper main-container" id="content">
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
 
-<link rel="stylesheet" href="{{ site.url }}/css/webinars.css?{{ site.time | date:'%s' }}">
-
-<div class="content-wrapper main-container" id="content">
 
 <div class="container">
   <main class="content webinar-content" id="main" role="main">
