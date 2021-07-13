@@ -8,8 +8,8 @@
 {%- include hero-livecoding.html -%}
     {%- elsif page.permalink contains "hero-auth" and hero.auth_promo -%}
         <!-- Display something specific on the authenticated hero include -->
-        {%- include {{hero.auth_promo}} -%} 
+        {%- include {{hero.auth_promo | prepend: "/heros/"}} -%} 
     {%- else -%}
     <!-- Display the current promo on both hero includes -->
-    {%- include {{hero.current_promo}} -%}
+    {%- include {{hero.current_promo | prepend: "/heros/"}} -%}
 {%- endif -%}

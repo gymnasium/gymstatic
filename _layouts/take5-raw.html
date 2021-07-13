@@ -4,10 +4,12 @@
     {%- include partials/test-top.html -%}
 {%- endif -%}
 
-<link rel="stylesheet" href="{{ site.url }}/css/take5.css">
+<link rel="stylesheet" href="{{ site.url }}/css/take5.css?{{ site.time | date:'%s' }}">
 
 {% include take5/detail-opener-js.html %}
 {% assign course = site.data.take5[page.course_ID] %}
+
+<div class="content-wrapper main-container" id="content">
 
 <div class="container">
   <div class="row">
@@ -177,6 +179,8 @@
     </div><!-- .col-md-12 -->
   </div><!-- .row -->
 </div><!-- .container -->
+
+</div><!-- #content.content-wrapper.main-container -->
 
 {%- if jekyll.environment == "development" -%}
     {%- include partials/test-bottom.html -%}

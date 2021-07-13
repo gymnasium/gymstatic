@@ -1,20 +1,11 @@
 {%- include build-timestamp.html -%}
-
 {%- if jekyll.environment == "development" -%}
   {%- include partials/test-top.html -%}
 {%- endif -%}
 
 <div class="content-wrapper main-container" id="content">
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="white-panel">
-        {{ content }}
-      </div><!-- .white-panel -->
-    </div><!-- .col-md-12 -->
-  </div><!-- .row -->
-</div><!-- .container -->
+{{ content }}
 
 </div><!-- #content.content-wrapper.main-container -->
 

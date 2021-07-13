@@ -26,17 +26,21 @@ video_ID: {{ webinar.video_ID }}
 //-->
 
 {% if webinar.video %}
-{%- assign page_title = "Webinar Recording | The Gymnasium" -%}
+  {%- assign page_title = "Webinar Recording | The Gymnasium" -%}
 {%- elsif webinar.register -%}
-{%- assign page_title = "Webinar Registration | The Gymnasium" -%}
+  {%- assign page_title = "Webinar Registration | The Gymnasium" -%}
 {% endif %}
+<!-- TODO: this page title does nothing to the theme front end, and should probably be removed -->
 <title>{{ page_title }}</title>
+
+<link rel="stylesheet" href="{{ site.url }}/css/webinars.css?{{ site.time | date:'%s' }}">
+
+<div class="content-wrapper main-container" id="content">
 
 <div class="container">
   <div class="row">
     <div class="col-md-12">
 
-<link rel="stylesheet" href="{{ site.url }}/css/webinars.css">
 
 <div class="container">
   <main class="content webinar-content" id="main" role="main">
@@ -119,7 +123,10 @@ video_ID: {{ webinar.video_ID }}
   </div><!-- .row -->
 </div><!-- .container -->
 
-<script src="{{ site.url }}/js/functions.js" async></script>
+</div><!-- #content.content-wrapper.main-container -->
+
+<!-- TODO: move this function to the main gymnasium.js file, scoped appropriately -->
+<script src="{{ site.url }}/js/functions.js?{{ site.time | date:'%s' }}" async defer></script>
 
 {%- if jekyll.environment == "development" -%}
   {%- include partials/test-bottom.html -%}

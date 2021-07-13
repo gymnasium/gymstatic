@@ -6,19 +6,54 @@
   for = "/feeds/*"
     [headers.values]
     Access-Control-Allow-Origin = "*"
+[[headers]]
+  for = "*.js" # js files should be set this way
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "*.css" # css files too
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
 
 # dev branch build
 # https://dev--gymcms.netlify.com/
 [context.dev]
   command = "JEKYLL_ENV=development bundle exec jekyll build --config _dev_config.yml"
+
+[context.dev.processing.images]
+  compress = true
+[context.dev.processing.css]
+  minify = true
+[context.dev.processing.js]
+  minify = true
+
 # staging branch build
 # https://staging.thegymcms.com/
 [context.staging]
   command = "JEKYLL_ENV=staging bundle exec jekyll build"
+
+[context.staging.processing.images]
+  compress = true
+[context.staging.processing.css]
+  minify = true
+[context.staging.processing.js]
+  minify = true
+
 # Deploy preview build
 [context.deploy-preview]
   command = "printf \"url: %s\" \"$DEPLOY_PRIME_URL\" > _config_netlify.yml; JEKYLL_ENV=staging bundle exec jekyll build --config _config.yml,_config_netlify.yml"
+
+[context.deploy-preview.processing]
+  skip_processing = true
+
 # production branch build
 # https://thegymcms.com/
 [context.production]
   command = "JEKYLL_ENV=production bundle exec jekyll build --config _production_config.yml"
+
+[context.production.processing.images]
+  compress = true
+[context.production.processing.css]
+  minify = true
+[context.production.processing.js]
+  minify = true

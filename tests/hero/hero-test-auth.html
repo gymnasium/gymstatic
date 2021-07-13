@@ -4,7 +4,7 @@ permalink: /tests/hero-auth
 ---
 {%- assign hero = site.data.hero -%}
 
-{% include {{ hero.auth_promo }} %}
+{% include {{ hero.auth_promo | prepend: "/heros/" }} %}
 
 <div style="margin-top: 80px">
 <!-- Does nothing but add space -->

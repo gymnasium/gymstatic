@@ -6,17 +6,19 @@
   {%- include partials/test-top.html -%}
 {%- endif -%}
 
+<div class="content-wrapper main-container" id="content">
+
 <div class="home">
 
   {%- if hero.live_coding == true -%}
     <!-- Display live coding on both hero includes -->
-    {%- include hero-livecoding.html -%}
+    {%- include /heros/hero-livecoding.html -%}
   {%- elsif page.permalink contains "home/index-auth/" and hero.auth_promo -%}
     <!-- Display something specific on the authenticated hero include -->
-    {%- include {{hero.auth_promo}} -%} 
+    {%- include {{hero.auth_promo | prepend: "/heros/"}} -%} 
   {%- else -%}
     <!-- Display the current promo on both hero includes -->
-    {%- include {{hero.current_promo}} -%}
+    {%- include {{hero.current_promo | prepend: "/heros/"}} -%}
   {%- endif -%}
 
   <section class="container-fluid subsection">
@@ -57,6 +59,8 @@
   
   {%- include home/as-seen-in.html -%}
 </div><!-- .home -->
+
+</div><!-- #content.content-wrapper.main-container -->
 
 {%- if jekyll.environment == "development" -%}
   {%- include partials/test-bottom.html -%}

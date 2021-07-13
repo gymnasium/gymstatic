@@ -2,10 +2,7 @@
 layout: raw
 permalink: /partials/sidebar-generic/
 ---
-{%-comment-%}
-TODO: move to /partials/sidebar-generic.html for consistency
-{%-endcomment-%}
-<link rel="stylesheet" href="{{ site.url }}/css/static-sidebar-content.css">
+<link rel="stylesheet" href="{{ site.url }}/css/static-sidebar-content.css?{{ site.time | date:'%s' }}">
 
 <!-- Temporary HTML for style hooks -->
 <div class="find-courses">

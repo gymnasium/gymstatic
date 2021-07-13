@@ -1,43 +1,30 @@
 {%- assign course = site.data.take5[page.course_ID] -%}
 {%- assign og_description = course.short_description -%}
 <meta property="og:url" content="{{ course.title | slugify | prepend: 'https://thegymnasium.com/courses/take5/' }}">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<!-- "og:site_name" content="Needs review?" -->
+{%- comment -%} "og:site_name" content="Needs review?" {%- endcomment -%}
 <meta property="og:site_name" content="Take 5 | Gymnasium">
 <meta property="og:title" content="{{ course.title }}">
 <meta property="og:description" content="{{ og_description }}">
-<!-- 1.91:1 aspect ratio supported by LinkedIn/Twitter -->
+{%- comment -%} 1.91:1 aspect ratio supported by LinkedIn/Twitter {%- endcomment -%}
 <meta property="og:image" content="{{ site.url }}{{ course.course_ID | downcase | append: '-og.png' | prepend: '/img/take5/og/' }}">
-<!-- Reuse Title or something more descriptive? -->
+{%- comment -%} Reuse Title or something more descriptive? {%- endcomment -%}
 <meta property="og:image:alt" content="{{ course.title | prepend: 'Video poster for tutorial titled ' }}">
-<!-- /*/ Twitter Card / Summary with large image /*/ -->
+{%- comment -%} /*/ Twitter Card / Summary with large image /*/ {%- endcomment -%}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@AquentGymnasium">
-<meta name="twitter:creator" content="@AquentGymnasium">
 <meta name="twitter:url" content="{{ course.title | slugify | prepend: 'https://thegymnasium.com/courses/take5/' }}">
 <meta name="twitter:title" content="{{ course.title }}">
 <meta name="twitter:description" content="{{ og_description }}">
-<!-- 1.91:1 aspect ratio supported by LinkedIn/Twitter -->
+{%- comment -%} 1.91:1 aspect ratio supported by LinkedIn/Twitter {%- endcomment -%}
 <meta name="twitter:image" content="{{ site.url }}{{ course.course_ID | downcase | append: '-og.png' | prepend: '/img/take5/og/' }}">
-<!-- Reuse Title or something more descriptive? -->
+{%- comment -%} Reuse Title or something more descriptive? {%- endcomment -%}
 <meta name="twitter:image:alt" content="{{ course.title | prepend: 'Video poster for tutorial titled ' }}">
 
-<link rel="apple-touch-icon" sizes="57x57" href="{{ site.url }}/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="{{ site.url }}/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="{{ site.url }}/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="{{ site.url }}/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="{{ site.url }}/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="{{ site.url }}/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="{{ site.url }}/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="{{ site.url }}/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ site.url }}/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="{{ site.url }}/favicon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ site.url }}/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="{{ site.url }}/favicon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ site.url }}/favicon/favicon-16x16.png">
-<link rel="manifest" href="{{ site.url }}/favicon/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="{{ site.url }}/favicon/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+{%- if page.robots -%}
+  <meta name="robots" content="{{page.robots}}">
+{%- endif -%}
+
+{%- include meta-static.html -%}
+
+{{content}}
+
 {%- include build-timestamp.html -%}

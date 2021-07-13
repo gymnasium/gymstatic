@@ -13,13 +13,13 @@ permalink: /tests/hero
 
 <h2>Authenticated Hero</h2>
 
-<p><a href="/tests/hero-auth">auth_promo</a>: <code>{{ hero.auth_promo }}</code></p>
+<p><a href="/tests/hero-auth">auth_promo</a>: <code>{{ hero.auth_promo | prepend: "/heros/"}}</code></p>
 
  
 
 <h2>Live Coding Hero</h2>
 
 
-<p><a href="/tests/hero-live-coding">live_coding</a>: <code>{{ hero.live_coding }}</code></p>
+<p><a href="/tests/hero-live-coding">live_coding</a>: <code>{{ hero.live_coding | prepend: "/heros/" }}</code></p>
 
 
